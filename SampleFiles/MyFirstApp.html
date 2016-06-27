@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+</head>
+<body ng-app = "myapp" ng-init="trees=[{treename:'cassiafistula'},{treename:'azadirachtaindica'}]">
+
+<!-- ng-app defines and links an angular js app to html, ng-model - binds values of angularjs application to html input controls, ng-binds angular js application data to html tags. -->
+<!-- <input type= "text" ng-model="yourname"></input> <h1>Hello {{yourname}}</h1> -->
+
+<div ng-controller = "testcontroller">
+	<h1> Welcome {{userName.firstName}}</h1>
+<input type="text" ng-model ="nameentered" placeholder ="Enter your Name" ng-show="true"/>
+<h2>Welcome <span ng-bind = "nameentered"></span></h2>
+<h3>User Full Name: {{userName.fullName( )}}</h3>
+      You are entering: {{userName.fullName()}}
+<h2>Welcome <span ng-bind = "userName.fullName() | uppercase"></span></h2>
+<h2>Welcome <span ng-bind = "userName.fullName() | lowercase"></span></h2>
+<Lable>Choose a Tree : </lable>
+<ol>
+<li ng-repeat = "subject in userName.subjects">{{subject.name}}:{{subject.marks}}</li>
+</ol>
+
+
+<ol>
+<li ng-repeat = "subject in userName.subjects | filter: active | orderBy:name">{{subject.name}}:{{subject.marks}}</li>
+</ol>
+
+<ol>
+	<li ng-repeat = "tree in trees">{{'Tree: ' + tree.treename}}
+</li>
+</ol>
+</div>
+<script>
+var mainapp =  angular.module("myapp",[ ]);
+
+mainapp.controller('testcontroller', function($scope) {
+$scope.userName = {
+	firstName : "Adam",
+	lastName : "Smith",
+	subjects: [ {name:'Tamil', marks:89,active:1},{name:'Marati', marks:89,active:1},{name:'Telugu', marks:89,active:0}
+],
+	fullName : function( ){
+		return $scope.userName.firstName+" " + $scope.userName.lastName;
+		}
+	};
+});
+
+</script>
+</body
+
+</html>
