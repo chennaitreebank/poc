@@ -1,0 +1,14 @@
+[trees:
+{
+tree_commonname: "Golden Shower Tree",
+tree_botanicalname: "Cassia Fistula"
+},
+{
+tree_commonname: "Neem Tree",
+tree_botanicalname: "Azairachta Indica"
+},
+{
+tree_commonname: "Punnai Tree",
+tree_botanicalname: "CalophyllumInophyllum"
+}
+]
